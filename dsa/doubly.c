@@ -10,7 +10,7 @@ struct doubly{
 typedef struct doubly node;
 
 node *start;
-int *count;
+
 
 
 void insert(int);
@@ -18,7 +18,7 @@ void del(int);
 void display();
 void search();
 void destruct();
-void countNode();
+
 
 int main(){
 	int choice;
@@ -133,13 +133,12 @@ void display(){
 		return;
 	}
 	
-	do{													//while use garda first element not displayed
+	do{										
 		printf("\na[%d]=%d",n,temp->info);
 		temp=temp->next;
 		n++;
 	}while(temp!=NULL);
-	countNode();
-	printf("Total Nodes: %d",*count);
+
 	return;
 	
 }
@@ -180,7 +179,9 @@ void del(int x){
 	
 	if(x==3){						//delete nth node    if pos =last or first may not work
 		printf("Enter the node you want to delete:");
+		
 		scanf("%d",&pos);
+
 		while(n<pos-1){
 			temp=temp->next;
 			n++;
@@ -232,12 +233,4 @@ void destruct(){
 	}
 }
 
-void countNode(){
-	node*temp=start;
-	*count=1;
-	while (temp->next!=NULL){
-		(*count)++;
-		temp=temp->next;
-	}
 
-}
